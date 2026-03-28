@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hirak Jyoti Kalita | Web Designer & SEO Expert | Edantra Design Service</title>
-<meta name="description" content="Hirak Jyoti Kalita — Founder of Edantra Design Service. I build high-converting websites, landing pages & SEO strategies that grow your business. Based in Guwahati, Assam.">
+<title>Edantra Design Service | High-Performance Web Design & SEO</title>
+<meta name="description" content="Edantra Design Service — Specialized in high-converting websites, landing pages & SEO growth strategies. Led by Founder Hirak Jyoti Kalita. Based in Guwahati, Assam.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -613,12 +613,12 @@ footer a { color:var(--accent);text-decoration:none; }
 <div class="cursor-ring" id="cursorRing"></div>
 
 <!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/917002337045?text=Hi%20Hirak%2C%20I%20found%20your%20profile%20and%20would%20like%20to%20discuss%20a%20project." class="float-wa" target="_blank">💬</a>
+<a href="https://wa.me/917002337045?text=Hi%20Edantra%2C%20I%20would%20like%20to%20discuss%20a%20project." class="float-wa" target="_blank">💬</a>
 
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">Edantra<span>.</span></a>
-  <a href="https://wa.me/917002337045" class="nav-pill" target="_blank">Let's Talk →</a>
+  <a href="https://wa.me/917002337045" class="nav-pill" target="_blank">Partner With Us →</a>
 </nav>
 
 <!-- HERO -->
@@ -627,28 +627,28 @@ footer a { color:var(--accent);text-decoration:none; }
   <div class="hero-glow"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-tag"><span class="dot-blink"></span> Open for Projects · Guwahati, Assam</div>
-      <h1 class="hero-name">Hirak Jyoti<br><span class="accent-word">Kalita.</span></h1>
-      <p class="hero-role">Web Designer & <strong>Business Growth Expert</strong></p>
+      <div class="hero-tag"><span class="dot-blink"></span> Agency Open for Projects · Guwahati</div>
+      <h1 class="hero-name">Edantra<br><span class="accent-word">Design.</span></h1>
+      <p class="hero-role">High-Performance <strong>Web & Growth Agency</strong></p>
       <p class="hero-desc">
-        I build fast, beautiful websites and landing pages that turn visitors into customers — backed by real SEO strategy and business growth thinking. Founder of <strong style="color:var(--text)">Edantra Design Service</strong>.
+        We build fast, beautiful websites and landing pages that turn visitors into customers — backed by real SEO strategy and business growth thinking. Led by Founder <strong style="color:var(--white)">Hirak Jyoti Kalita</strong>.
       </p>
       <div class="hero-actions">
-        <a href="https://wa.me/917002337045?text=Hi%20Hirak%2C%20I%20would%20like%20to%20get%20a%20website%20made." class="btn-green" target="_blank">💬 WhatsApp Me</a>
-        <a href="#services" class="btn-ghost">See My Services ↓</a>
+        <a href="https://wa.me/917002337045?text=Hi%20Edantra%2C%20I%20would%20like%20to%20get%20a%20website%20made." class="btn-green" target="_blank">💬 Connect via WhatsApp</a>
+        <a href="#services" class="btn-ghost">View Our Services ↓</a>
       </div>
     </div>
 
     <div class="hero-avatar-card">
       <div class="avatar-circle">
-        HK
+        ED
         <div class="avatar-ring"></div>
       </div>
-      <div class="avatar-name">Hirak Jyoti Kalita</div>
-      <div class="avatar-title">Web Designer · SEO Expert</div>
-      <div class="avatar-firm">🏢 Edantra Design Service</div>
+      <div class="avatar-name">Edantra Design</div>
+      <div class="avatar-title">Digital Growth Agency</div>
+      <div class="avatar-firm">Lead: Hirak Jyoti Kalita</div>
       <div class="avatar-status">
-        <span class="dot-blink"></span> Available for new projects
+        <span class="dot-blink"></span> Accepting New Clients
       </div>
     </div>
   </div>
@@ -841,32 +841,34 @@ footer a { color:var(--accent);text-decoration:none; }
       <div class="contact-card-title">Send a Quick Message</div>
       <p class="contact-card-sub">I'll get back to you within a few hours.</p>
 
-      <div class="form-field">
-        <label>Your Name</label>
-        <input type="text" placeholder="e.g. Priya Sharma">
-      </div>
-      <div class="form-field">
-        <label>Phone / WhatsApp</label>
-        <input type="tel" placeholder="+91 XXXXX XXXXX">
-      </div>
-      <div class="form-field">
-        <label>Service Needed</label>
-        <select>
-          <option value="">— Select —</option>
-          <option>New Website Design</option>
-          <option>Landing Page</option>
-          <option>SEO Services</option>
-          <option>Business Growth Strategy</option>
-          <option>Website Revamp</option>
-          <option>Brand Identity</option>
-          <option>Not Sure Yet</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label>Tell me about your project</label>
-        <textarea placeholder="Brief description of what you need..."></textarea>
-      </div>
-      <button class="form-submit" onclick="handleSubmit(this)">Send Message →</button>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Priya Sharma" required>
+        </div>
+        <div class="form-field">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        <div class="form-field">
+          <label>Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="">— Select —</option>
+            <option>New Website Design</option>
+            <option>Landing Page</option>
+            <option>SEO Services</option>
+            <option>Business Growth Strategy</option>
+            <option>Website Revamp</option>
+            <option>Brand Identity</option>
+            <option>Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Tell me about your project</label>
+          <textarea id="message" name="message" placeholder="Brief description of what you need..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submitBtn">Send Message →</button>
+      </form>
     </div>
   </div>
 </section>
@@ -923,14 +925,59 @@ document.querySelectorAll('.svc-card,.step,.contact-method').forEach(el=>{
   observer.observe(el);
 });
 
-// Form submit
-function handleSubmit(btn){
-  btn.textContent = '✅ Message Sent!';
-  btn.style.background = '#00b87a';
-  setTimeout(()=>{
-    btn.textContent = 'Send Message →';
-    btn.style.background = '';
-  }, 3500);
+// Form submit with API
+async function handleSubmit(event){
+  event.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const form = document.getElementById('contactForm');
+  
+  // Collect form data
+  const formData = {
+    name: document.getElementById('name').value,
+    phone: document.getElementById('phone').value,
+    service: document.getElementById('service').value,
+    message: document.getElementById('message').value,
+    timestamp: new Date().toISOString()
+  };
+  
+  btn.disabled = true;
+  btn.textContent = '⏳ Sending...';
+  
+  try {
+    // FormSubmit.co endpoint - receives at hirak.wealth@gmail.com
+    const API_ENDPOINT = 'https://formsubmit.co/ajax/hirak.wealth@gmail.com';
+    
+    const response = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+    
+    if (!response.ok) throw new Error('API Error');
+    
+    btn.textContent = '✅ Message Sent!';
+    btn.style.background = '#00b87a';
+    form.reset();
+    
+    setTimeout(()=>{
+      btn.textContent = 'Send Message →';
+      btn.style.background = 'var(--accent)';
+      btn.disabled = false;
+    }, 3500);
+    
+  } catch (error) {
+    console.error('Form submission error:', error);
+    btn.textContent = '❌ Error Sending';
+    btn.style.background = '#ff4444';
+    
+    setTimeout(()=>{
+      btn.textContent = 'Send Message →';
+      btn.style.background = 'var(--accent)';
+      btn.disabled = false;
+    }, 3500);
+  }
 }
 </script>
 </body>
