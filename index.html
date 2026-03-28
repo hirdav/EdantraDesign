@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hirak Jyoti Kalita | Web Designer & SEO Expert | Edantra Design Service</title>
+<meta name="description" content="Hirak Jyoti Kalita — Founder of Edantra Design Service. I build high-converting websites, landing pages & SEO strategies that grow your business. Based in Guwahati, Assam.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #080c10;
+  --surface: #0e1318;
+  --surface2: #141b22;
+  --accent: #00e5a0;
+  --accent2: #00b87a;
+  --accent-glow: rgba(0,229,160,0.15);
+  --white: #ffffff;
+  --text: #c8d4dc;
+  --muted: #6a7d8a;
+  --border: rgba(255,255,255,0.07);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  width: 10px; height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed; pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s, width 0.3s, height 0.3s, opacity 0.3s;
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(0,229,160,0.4);
+  border-radius: 50%;
+  position: fixed; pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.12s ease, width 0.3s, height 0.3s;
+}
+
+/* ── NOISE OVERLAY ── */
+body::before {
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:0.4;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding: 20px 6%;
+  display:flex;align-items:center;justify-content:space-between;
+  background: rgba(8,12,16,0.85);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-logo {
+  font-family:'Syne',sans-serif;
+  font-weight:800;font-size:18px;
+  color:var(--white);letter-spacing:-0.02em;
+  text-decoration:none;
+}
+
+.nav-logo span { color:var(--accent); }
+
+.nav-pill {
+  background:var(--accent);
+  color:#000;
+  font-size:13px;font-weight:600;
+  padding:9px 22px;border-radius:100px;
+  text-decoration:none;
+  transition:transform 0.2s,box-shadow 0.2s;
+  font-family:'Syne',sans-serif;
+  letter-spacing:0.02em;
+}
+
+.nav-pill:hover {
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,229,160,0.3);
+}
+
+/* ── HERO ── */
+#hero {
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:120px 6% 80px;
+  position:relative;overflow:hidden;
+}
+
+/* animated grid bg */
+.hero-grid {
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,229,160,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,160,0.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);
+}
+
+.hero-glow {
+  position:absolute;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(0,229,160,0.1) 0%,transparent 70%);
+  top:-100px;right:-100px;
+  animation:drift 8s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%,100%{transform:translate(0,0) scale(1);}
+  50%{transform:translate(-40px,40px) scale(1.1);}
+}
+
+.hero-inner {
+  max-width:1100px;margin:0 auto;width:100%;
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;
+}
+
+.hero-tag {
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(0,229,160,0.3);
+  border-radius:100px;padding:6px 16px;
+  font-size:12px;color:var(--accent);
+  letter-spacing:0.1em;text-transform:uppercase;font-weight:500;
+  margin-bottom:28px;
+  animation:fadeUp 0.8s ease both;
+}
+
+.dot-blink {
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  animation:blink 1.5s infinite;
+}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+.hero-name {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(44px,7vw,88px);
+  font-weight:800;
+  color:var(--white);
+  line-height:1.0;
+  letter-spacing:-0.03em;
+  margin-bottom:6px;
+  animation:fadeUp 0.8s 0.1s ease both;
+}
+
+.hero-name .accent-word { color:var(--accent); }
+
+.hero-role {
+  font-size:clamp(16px,2vw,22px);
+  color:var(--muted);
+  margin-bottom:24px;
+  font-weight:300;
+  animation:fadeUp 0.8s 0.2s ease both;
+}
+
+.hero-role strong { color:var(--text); font-weight:500; }
+
+.hero-desc {
+  font-size:16px;
+  color:var(--muted);
+  max-width:520px;
+  line-height:1.9;
+  margin-bottom:40px;
+  animation:fadeUp 0.8s 0.3s ease both;
+}
+
+.hero-actions {
+  display:flex;gap:14px;flex-wrap:wrap;
+  animation:fadeUp 0.8s 0.4s ease both;
+}
+
+.btn-green {
+  background:var(--accent);
+  color:#000;
+  padding:13px 28px;border-radius:8px;
+  font-size:14px;font-weight:600;text-decoration:none;
+  font-family:'Syne',sans-serif;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,229,160,0.35);}
+
+.btn-ghost {
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:13px 28px;border-radius:8px;
+  font-size:14px;font-weight:500;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:border-color 0.2s,color 0.2s;
+}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+/* avatar card */
+.hero-avatar-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:32px 28px;
+  text-align:center;
+  min-width:220px;
+  position:relative;
+  animation:fadeUp 0.8s 0.3s ease both;
+}
+
+.avatar-circle {
+  width:100px;height:100px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#0e2a1f,#1a4a35);
+  border:2px solid rgba(0,229,160,0.3);
+  margin:0 auto 16px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;
+  font-size:36px;font-weight:800;
+  color:var(--accent);
+  position:relative;
+}
+
+.avatar-ring {
+  position:absolute;inset:-6px;
+  border-radius:50%;
+  border:1px solid rgba(0,229,160,0.15);
+  animation:spin 8s linear infinite;
+}
+
+.avatar-ring::after {
+  content:'';
+  position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+}
+
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.avatar-name {
+  font-family:'Syne',sans-serif;
+  font-size:16px;font-weight:700;
+  color:var(--white);margin-bottom:4px;
+}
+
+.avatar-title {
+  font-size:12px;color:var(--accent);
+  text-transform:uppercase;letter-spacing:0.1em;
+  margin-bottom:16px;
+}
+
+.avatar-firm {
+  background:rgba(0,229,160,0.08);
+  border:1px solid rgba(0,229,160,0.15);
+  border-radius:8px;padding:10px 14px;
+  font-size:13px;color:var(--text);
+  font-weight:500;
+}
+
+.avatar-status {
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  margin-top:14px;font-size:12px;color:var(--accent);
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:28px 6%;
+}
+
+.stats-inner {
+  max-width:1100px;margin:0 auto;
+  display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;
+}
+
+.stat-item { text-align:center; }
+
+.stat-num {
+  font-family:'Syne',sans-serif;
+  font-size:36px;font-weight:800;
+  color:var(--accent);line-height:1;
+  margin-bottom:4px;
+}
+
+.stat-label {
+  font-size:12px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:0.1em;
+}
+
+/* ── SERVICES ── */
+#services {
+  padding:96px 6%;
+}
+
+.section-label {
+  font-size:11px;font-weight:600;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'';width:24px;height:1px;background:var(--accent);}
+
+.section-title {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(28px,4vw,48px);
+  font-weight:800;color:var(--white);
+  letter-spacing:-0.02em;margin-bottom:12px;
+  line-height:1.1;
+}
+
+.section-sub {
+  font-size:15px;color:var(--muted);
+  max-width:500px;margin-bottom:52px;
+  line-height:1.8;
+}
+
+.services-grid {
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+
+.svc-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;padding:32px 28px;
+  position:relative;overflow:hidden;
+  transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;
+}
+
+.svc-card::before {
+  content:'';
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s;
+}
+
+.svc-card:hover {
+  transform:translateY(-6px);
+  border-color:rgba(0,229,160,0.2);
+  box-shadow:0 24px 48px rgba(0,0,0,0.4),0 0 0 1px rgba(0,229,160,0.1);
+}
+
+.svc-card:hover::before{transform:scaleX(1);}
+
+.svc-num {
+  font-family:'Syne',sans-serif;
+  font-size:11px;font-weight:700;
+  color:rgba(0,229,160,0.3);
+  letter-spacing:0.1em;
+  margin-bottom:20px;
+}
+
+.svc-icon {
+  font-size:32px;margin-bottom:16px;display:block;
+}
+
+.svc-title {
+  font-family:'Syne',sans-serif;
+  font-size:19px;font-weight:700;
+  color:var(--white);margin-bottom:10px;
+  letter-spacing:-0.01em;
+}
+
+.svc-desc {
+  font-size:14px;color:var(--muted);
+  line-height:1.75;margin-bottom:20px;
+}
+
+.svc-tags {
+  display:flex;flex-wrap:wrap;gap:6px;
+}
+
+.tag {
+  font-size:11px;padding:4px 10px;
+  border-radius:100px;
+  background:rgba(0,229,160,0.07);
+  border:1px solid rgba(0,229,160,0.15);
+  color:var(--accent);font-weight:500;
+}
+
+/* ── PROCESS ── */
+#process {
+  padding:96px 6%;
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.process-inner { max-width:1100px;margin:0 auto; }
+
+.process-steps {
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;margin-top:52px;
+  position:relative;
+}
+
+.step {
+  padding:32px 24px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:12px;
+  position:relative;
+  transition:background 0.3s;
+}
+
+.step:hover { background:rgba(0,229,160,0.03); }
+
+.step-num {
+  font-family:'Syne',sans-serif;
+  font-size:48px;font-weight:800;
+  color:rgba(0,229,160,0.07);
+  line-height:1;margin-bottom:14px;
+}
+
+.step-title {
+  font-family:'Syne',sans-serif;
+  font-size:16px;font-weight:700;
+  color:var(--white);margin-bottom:8px;
+}
+
+.step-desc {
+  font-size:13.5px;color:var(--muted);
+  line-height:1.7;
+}
+
+.step-icon {
+  font-size:22px;margin-bottom:12px;display:block;
+}
+
+/* ── CONTACT ── */
+#contact {
+  padding:96px 6%;
+}
+
+.contact-inner {
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;
+}
+
+.contact-left h2 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(28px,4vw,44px);
+  font-weight:800;color:var(--white);
+  letter-spacing:-0.02em;line-height:1.1;
+  margin-bottom:16px;
+}
+
+.contact-left p {
+  font-size:15px;color:var(--muted);
+  line-height:1.8;margin-bottom:36px;
+}
+
+.contact-methods { display:flex;flex-direction:column;gap:16px; }
+
+.contact-method {
+  display:flex;align-items:center;gap:16px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;padding:18px 20px;
+  text-decoration:none;
+  transition:border-color 0.2s,transform 0.2s;
+}
+
+.contact-method:hover {
+  border-color:rgba(0,229,160,0.3);
+  transform:translateX(4px);
+}
+
+.method-icon {
+  width:44px;height:44px;border-radius:10px;
+  background:rgba(0,229,160,0.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+
+.method-label {
+  font-size:11px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2px;
+}
+
+.method-value {
+  font-family:'Syne',sans-serif;
+  font-size:16px;font-weight:700;color:var(--white);
+}
+
+/* Contact card */
+.contact-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;padding:40px 36px;
+  position:relative;overflow:hidden;
+}
+
+.contact-card::before {
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+}
+
+.contact-card-title {
+  font-family:'Syne',sans-serif;
+  font-size:22px;font-weight:800;
+  color:var(--white);margin-bottom:6px;
+}
+
+.contact-card-sub {
+  font-size:13.5px;color:var(--muted);margin-bottom:28px;
+}
+
+.form-field { margin-bottom:16px; }
+
+.form-field label {
+  display:block;font-size:11px;font-weight:600;
+  color:var(--muted);text-transform:uppercase;
+  letter-spacing:0.08em;margin-bottom:6px;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width:100%;background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:8px;padding:12px 14px;
+  color:var(--white);font-family:'Outfit',sans-serif;
+  font-size:14px;outline:none;
+  transition:border-color 0.2s;
+  -webkit-appearance:none;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus { border-color:var(--accent); }
+
+.form-field textarea { height:90px;resize:vertical; }
+
+.form-field select option { background:var(--surface); }
+
+.form-submit {
+  width:100%;padding:14px;
+  background:var(--accent);
+  color:#000;border:none;border-radius:8px;
+  font-family:'Syne',sans-serif;
+  font-size:14px;font-weight:700;
+  letter-spacing:0.04em;cursor:pointer;
+  margin-top:4px;
+  transition:box-shadow 0.2s,transform 0.2s;
+}
+
+.form-submit:hover {
+  box-shadow:0 8px 24px rgba(0,229,160,0.35);
+  transform:translateY(-1px);
+}
+
+/* ── FOOTER ── */
+footer {
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:32px 6%;
+  text-align:center;
+}
+
+footer p { font-size:13px;color:var(--muted); }
+footer a { color:var(--accent);text-decoration:none; }
+
+/* ── FLOATING WA ── */
+.float-wa {
+  position:fixed;bottom:24px;right:24px;z-index:200;
+  width:56px;height:56px;border-radius:50%;
+  background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;text-decoration:none;
+  box-shadow:0 8px 24px rgba(37,211,102,0.5);
+  transition:transform 0.2s;
+}
+.float-wa:hover{transform:scale(1.1);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-avatar-card{display:none;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .contact-inner{grid-template-columns:1fr;}
+}
+
+@media(max-width:560px){
+  .services-grid{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:1fr;}
+  .stats-inner{gap:32px;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/917002337045?text=Hi%20Hirak%2C%20I%20found%20your%20profile%20and%20would%20like%20to%20discuss%20a%20project." class="float-wa" target="_blank">💬</a>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Edantra<span>.</span></a>
+  <a href="https://wa.me/917002337045" class="nav-pill" target="_blank">Let's Talk →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><span class="dot-blink"></span> Open for Projects · Guwahati, Assam</div>
+      <h1 class="hero-name">Hirak Jyoti<br><span class="accent-word">Kalita.</span></h1>
+      <p class="hero-role">Web Designer & <strong>Business Growth Expert</strong></p>
+      <p class="hero-desc">
+        I build fast, beautiful websites and landing pages that turn visitors into customers — backed by real SEO strategy and business growth thinking. Founder of <strong style="color:var(--text)">Edantra Design Service</strong>.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/917002337045?text=Hi%20Hirak%2C%20I%20would%20like%20to%20get%20a%20website%20made." class="btn-green" target="_blank">💬 WhatsApp Me</a>
+        <a href="#services" class="btn-ghost">See My Services ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-avatar-card">
+      <div class="avatar-circle">
+        HK
+        <div class="avatar-ring"></div>
+      </div>
+      <div class="avatar-name">Hirak Jyoti Kalita</div>
+      <div class="avatar-title">Web Designer · SEO Expert</div>
+      <div class="avatar-firm">🏢 Edantra Design Service</div>
+      <div class="avatar-status">
+        <span class="dot-blink"></span> Available for new projects
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Client Satisfaction</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Fast</div>
+      <div class="stat-label">Delivery Turnaround</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3-in-1</div>
+      <div class="stat-label">Design + SEO + Growth</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">📍</div>
+      <div class="stat-label">Guwahati, Assam</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">What I Do</div>
+    <h2 class="section-title">Services That Grow<br>Your Business</h2>
+    <p class="section-sub">Everything you need to establish a strong digital presence — designed, built, and optimised by one dedicated professional.</p>
+
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <span class="svc-icon">🌐</span>
+        <div class="svc-title">Website Design & Development</div>
+        <p class="svc-desc">Professional, mobile-first websites that load fast, look stunning, and reflect your brand perfectly. Built to convert visitors into paying clients.</p>
+        <div class="svc-tags">
+          <span class="tag">Business Websites</span>
+          <span class="tag">Mobile-First</span>
+          <span class="tag">Fast Loading</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <span class="svc-icon">🎯</span>
+        <div class="svc-title">Landing Page Design</div>
+        <p class="svc-desc">High-converting landing pages crafted specifically to capture leads, promote offers, and drive action — designed with psychology and aesthetics in mind.</p>
+        <div class="svc-tags">
+          <span class="tag">Lead Generation</span>
+          <span class="tag">CRO Focused</span>
+          <span class="tag">Quick Launch</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <span class="svc-icon">🔍</span>
+        <div class="svc-title">SEO Services</div>
+        <p class="svc-desc">Get found on Google by your ideal customers. I handle on-page SEO, local SEO, keyword strategy, and technical optimisation so your site ranks and grows.</p>
+        <div class="svc-tags">
+          <span class="tag">Local SEO</span>
+          <span class="tag">On-Page SEO</span>
+          <span class="tag">Google Ranking</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-num">04</div>
+        <span class="svc-icon">📈</span>
+        <div class="svc-title">Business Growth Strategy</div>
+        <p class="svc-desc">Beyond just a website — I help businesses build their digital strategy, identify growth opportunities, and create a consistent online presence that attracts clients.</p>
+        <div class="svc-tags">
+          <span class="tag">Digital Strategy</span>
+          <span class="tag">Brand Presence</span>
+          <span class="tag">Growth Roadmap</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-num">05</div>
+        <span class="svc-icon">🎨</span>
+        <div class="svc-title">Brand Identity & UI Design</div>
+        <p class="svc-desc">Logo, colour palette, typography, and visual identity that makes your business look credible, professional, and memorable across all platforms.</p>
+        <div class="svc-tags">
+          <span class="tag">Logo Design</span>
+          <span class="tag">Brand Kit</span>
+          <span class="tag">UI/UX</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-num">06</div>
+        <span class="svc-icon">⚡</span>
+        <div class="svc-title">Website Revamp & Maintenance</div>
+        <p class="svc-desc">Is your current website outdated or underperforming? I'll redesign, speed it up, fix issues, and keep it updated so it works for your business 24/7.</p>
+        <div class="svc-tags">
+          <span class="tag">Redesign</span>
+          <span class="tag">Speed Optimisation</span>
+          <span class="tag">Maintenance</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Simple 4-Step Process</h2>
+    <p class="section-sub">From first conversation to live website — smooth, transparent, and fast.</p>
+
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <span class="step-icon">💬</span>
+        <div class="step-title">Discovery Call</div>
+        <p class="step-desc">We chat on WhatsApp or call to understand your business, goals, and what you need from your website.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <span class="step-icon">📐</span>
+        <div class="step-title">Design & Plan</div>
+        <p class="step-desc">I create the design concept and structure, keeping your brand and target audience front and centre.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <span class="step-icon">🛠️</span>
+        <div class="step-title">Build & Refine</div>
+        <p class="step-desc">Development begins. You review, give feedback, and I refine until it's exactly right.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <span class="step-icon">🚀</span>
+        <div class="step-title">Launch & Grow</div>
+        <p class="step-desc">Your website goes live — SEO-optimised, fast, and ready to bring in business from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-label">Contact</div>
+      <h2>Ready to Build<br>Something Great?</h2>
+      <p>Got a project in mind? Let's talk. Whether you need a full website, a quick landing page, or an SEO boost — I'm here to help.</p>
+
+      <div class="contact-methods">
+        <a href="https://wa.me/917002337045" class="contact-method" target="_blank">
+          <div class="method-icon">💬</div>
+          <div>
+            <div class="method-label">WhatsApp</div>
+            <div class="method-value">+91 70023 37045</div>
+          </div>
+        </a>
+        <a href="tel:+917002337045" class="contact-method">
+          <div class="method-icon">📞</div>
+          <div>
+            <div class="method-label">Call Directly</div>
+            <div class="method-value">+91 70023 37045</div>
+          </div>
+        </a>
+        <div class="contact-method" style="cursor:default;">
+          <div class="method-icon">📍</div>
+          <div>
+            <div class="method-label">Based In</div>
+            <div class="method-value">Guwahati, Assam</div>
+          </div>
+        </div>
+        <div class="contact-method" style="cursor:default;">
+          <div class="method-icon">🏢</div>
+          <div>
+            <div class="method-label">Firm</div>
+            <div class="method-value">Edantra Design Service</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-card-title">Send a Quick Message</div>
+      <p class="contact-card-sub">I'll get back to you within a few hours.</p>
+
+      <div class="form-field">
+        <label>Your Name</label>
+        <input type="text" placeholder="e.g. Priya Sharma">
+      </div>
+      <div class="form-field">
+        <label>Phone / WhatsApp</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX">
+      </div>
+      <div class="form-field">
+        <label>Service Needed</label>
+        <select>
+          <option value="">— Select —</option>
+          <option>New Website Design</option>
+          <option>Landing Page</option>
+          <option>SEO Services</option>
+          <option>Business Growth Strategy</option>
+          <option>Website Revamp</option>
+          <option>Brand Identity</option>
+          <option>Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Tell me about your project</label>
+        <textarea placeholder="Brief description of what you need..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleSubmit(this)">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <a href="#">Edantra Design Service</a> · Built by <strong style="color:var(--text)">Hirak Jyoti Kalita</strong> · Guwahati, Assam · <a href="tel:+917002337045">+91 70023 37045</a></p>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+});
+
+function animateRing(){
+  rx += (mx-rx)*0.12;
+  ry += (my-ry)*0.12;
+  ring.style.left = rx+'px'; ring.style.top = ry+'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a,button,.svc-card,.contact-method').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cursor.style.width='16px';cursor.style.height='16px';
+    ring.style.width='52px';ring.style.height='52px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cursor.style.width='10px';cursor.style.height='10px';
+    ring.style.width='36px';ring.style.height='36px';
+  });
+});
+
+// Scroll animations
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+    }
+  });
+},{threshold:0.1});
+
+document.querySelectorAll('.svc-card,.step,.contact-method').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(20px)';
+  el.style.transition='opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, box-shadow 0.3s';
+  observer.observe(el);
+});
+
+// Form submit
+function handleSubmit(btn){
+  btn.textContent = '✅ Message Sent!';
+  btn.style.background = '#00b87a';
+  setTimeout(()=>{
+    btn.textContent = 'Send Message →';
+    btn.style.background = '';
+  }, 3500);
+}
+</script>
+</body>
+</html>
